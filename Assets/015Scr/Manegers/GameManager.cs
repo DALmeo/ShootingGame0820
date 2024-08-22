@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    void Start()
+    ScroolManeger scrollManger;
+    private void Start()
     {
-        
+        scrollManger = GameObject.FindAnyObjectByType<ScroolManeger>();
+        StartCoroutine(Gamestart());
     }
-
-    void Update()
+    IEnumerator Gamestart()
     {
-        
+        yield return new WaitForSeconds(2f);
+        Debug.Log("게임 준비");
+        yield return new WaitForSeconds(2f);
+        scrollManger?.SetScrollSpeed(4);
     }
 }

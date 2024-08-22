@@ -38,13 +38,13 @@ public class ResolutionManger : Singleton<ResolutionManger>
     private void SetCameraAspectRotio()
     {
         Rect rt = mainCam.rect;
-        float ScreenAspect = (float)(Screen.width / Screen.height);
+        float ScreenAspect = (float)Screen.width / Screen.height;
         float targetAspect = fixedAspectRotio.x / fixedAspectRotio.y;
 
         if(ScreenAspect >= targetAspect)
         {
             float width = targetAspect / ScreenAspect;
-            rt.width = (1f - width) / 2f;
+            rt.width = width;
             rt.height = 1f;
             rt.x = (1f - width) / 2f;
             rt.y = 0f;

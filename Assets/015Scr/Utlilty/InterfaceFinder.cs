@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class InterfaceFinder : MonoBehaviour
 {
-  //public static List<T> finObjectOfInterFace<T>() where T : class
-    //{
-    //    MonoBehaviour[] allobjects = FindObjectsByType<MonoBehaviour>();
-    //    List<T> interfaceObjects = new List<T>();
+    public static List<T> FindObectOfInterface<T>() where T : class
+    {
+        MonoBehaviour[] allObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
+        List<T> interfaceObjects = new List<T>();
+        foreach (var obj in allObjects)
+        {
 
-    //    foreach(var obj in allobjects)
-    //    {
-    //        if(obj is T interfaceobj)
-    //        {
+            if(obj is T)
+            {
 
-    //        }
-    //    }
-    //}
-
+            }
+            if (obj is T interfaceObj)
+            {
+                interfaceObjects.Add(interfaceObj);
+            }
+        }
+        return interfaceObjects;
+    }
 }
 
